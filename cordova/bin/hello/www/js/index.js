@@ -1,24 +1,37 @@
 let elem_login_email = $('#inputEmail');
 let elem_login_pass = $('#inputPassword');
-let response_login = [
+let response_login =
     {
         data : [{
-
+            username : 'ridwanzal',
         }],
         message : 'Success',
         code : 200
-    }
-];
+    };
 
 $(document).ready(function (e) {
+    let check_session = localStorage.getItem('userdata');
+    if(check_session != null){
+        $('#content_front').hide(); 
+        $('#content2').hide();
+        $('#content1').show();
+        $('#navigation_main').show();
+    }else{
+        $('#content_front').show(); 
+        $('#content2').hide();
+        $('#content1').hide(); 
+        $('#navigation_main').hide();
+    }
+
     let add_button = $('#add_multiple');
     let wrapper = $('.main_container');
     let arr = [];
     let login_checked;
     n = 0;
-    $('#submit_login').on('click', function () {
+    $('#submit_login').on('click', function () {    
         if(elem_login_email.val() == ""){
             elem_login_email.css('border-color', '#ff0000');
+            return;
         }else{
             elem_login_email.css('border-color', '#ced4da');
         }
@@ -31,24 +44,44 @@ $(document).ready(function (e) {
         }
 
         
-
         // call service here if succcess return json
         let i = 0 ;
-        for(i; i < response_login.length; i++){
-            if(response_login[i].code === 200){
-                $('#content_front').hide(); 
-                $('#content2').hide();
-                $('#content1').show();
-                $('#navigation_main').show();
-            }
+            if(response_login.code === 200){
+                Swal.fire({
+                    type: 'success',
+                    title: 'Success',   
+                    text: 'Login Success',
+                });
+                localStorage.setItem("userdata", response_login.data);
+                setTimeout(function(){
+                      $('#content_front').hide(); 
+                      $('#content2').hide();
+                      $('#content1').show();
+                      $('#navigation_main').show();
+                }, 2000)
         }
     });
 
     $('#submit_logout').on('click', function () {
-        $('#content_front').show();
-        $('#content2').hide();
-        $('#content1').hide();
-        $('#navigation_main').hide();
+        Swal.fire({
+            title: 'Logout',
+            text: "Anda yakin untuk keluar",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logout!'
+          }).then((result) => {
+            if (result.value) {
+              Swal.fire(
+                'Logout success'
+              )
+                $('#content_front').show();
+                $('#content2').hide();
+                $('#content1').hide();
+                $('#navigation_main').hide();
+            }
+          })
     });
 
     $('#menu1').on('click', function () {
@@ -160,18 +193,21 @@ $(document).ready(function (e) {
         console.log(arr);
     });
 
-    // fetch data inspection list
-    // {
-    //     "label_enduser_": "Bureau Veritas",
-    //     "label_inspectdate_": "2018-04-18",
-    //     "label_inspector": "Athar Ahmad",
-    //     "label_invoicenum_": "",
-    //     "label_prodcat_": "Electrical Overhead Crane",
-    //     "label_remark_": "please come at 9.00 am",
-    //     "label_rep_": "",
-    //     "label_schedule_": "2019-08-28",
-    //     "label_status_": "Unsafe"
-    //   }
+    /*
+    fetch data inspection list
+    {
+        "label_enduser_": "Bureau Veritas",
+        "label_inspectdate_": "2018-04-18",
+        "label_inspector": "Athar Ahmad",
+        "label_invoicenum_": "",
+        "label_prodcat_": "Electrical Overhead Crane",
+        "label_remark_": "please come at 9.00 am",
+        "label_rep_": "",
+        "label_schedule_": "2019-08-28",
+        "label_status_": "Unsafe"
+    }
+    */
+
     $.ajax({
         url: "js/list.json", // change with service
         method: 'get',
@@ -203,4 +239,21 @@ function removeForms(n) {
     $('#wrapper_' + n + '').remove();
     $('#ruler_' + n + '').remove();
     n = n - 1;
+}
+
+function toLoginPage(){
+    $('#content_front').show();
+    $('#content2').hide();
+    $('#content1').hide();
+    $('#navigation_main').hide();
+}
+
+function toRequestForm(){
+    $('#content1').hide();
+    $('#content2').show();
+}
+
+function toListForm(){
+    $('#content2').hide();
+    $('#content1').show();
 }

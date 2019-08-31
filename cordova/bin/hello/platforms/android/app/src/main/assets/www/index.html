@@ -9,19 +9,53 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>Request Inspection</title>
 </head>
 
 <body class="">
-    <form method="get">
-        <nav class="navbar fixed-top navbar-dark bg-dark">
+    <!-- page one -->
+    <section class="" id="content_front">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card-body">
+                        <br/>
+                        <h5 class="card-title text-center">Login</h5>
+                        <p class="card-title text-center">Email and Password</p>
+                        <br/>
+                        <br/>
+                        <!-- <form class="form-signin"> -->
+                        <div class="form-label-group">
+                            <label for="inputEmail">Email address</label>
+                            <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control" placeholder="Email">
+                            <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                    required autofocus> -->
+                        </div>
+                        <div class="form-label-group" style="margin-top:10px;">
+                            <label for="inputPassword">Password</label>
+                            <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                    required> -->
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                        </div>
+                        <br />
+                        <button class="btn btn-sm btn-primary btn-block text-uppercase" id="submit_login" style="padding: 10px;">Sign
+                            in</button>
+                        <hr class="my-4">
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="" id="content2" style="display: none;margin-bottom:60px;">
+        <nav class="navbar fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">Govcek</a>
-            <button class="btn btn-outline-success my-2 my-sm-0" id="get_all_data" type="submit">Submit</button>
+            <p class="my-2 my-sm-0" id="get_all_data" style="color:forestgreen">Submit</p>
         </nav>
-        <div class="container main_container">
-            <nav aria-label="breadcrumb" style="margin-top: 10px;">
+        <div class=" container main_container">
+            <nav aria-label="breadcrumb" style="margin-top: 70px;">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Request Inspection Form Entry</li>
+                    <li class="breadcrumb-item" aria-current="page">Request Inspection Form Entry</li>
                 </ol>
             </nav>
             <div class="main_wrapper" id="wrapper_0">
@@ -89,129 +123,79 @@
                     </div>
                 </div>
             </div>
-    </form>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <button type="button" id="add_multiple" class="btn btn-outline-primary btn-block">Tambah</button>
+            <!-- </form> -->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <button type="button" id="add_multiple"
+                            class="btn btn-outline-primary btn-block">Tambah</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section id="content1" style="display: none;">
+        <nav class="navbar fixed-top navbar-light bg-light">
+            <a class="navbar-brand" href="#">Govcek</a>
+        </nav>
+        <div class="container wrapper_list">
+            <nav aria-label="breadcrumb" style="margin-top:70px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Request Inspection List </li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="list-group wrapper_list_inner"  >
+                        <!-- list generat via javascript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <nav class="navbar fixed-bottom navbar-light bg-light" style="display: none;" id="navigation_main">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-xs">
+                    <a class="navbar-brand" id="menu1">
+                        <h6>
+                            List Request
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-sm-xs text-center">
+                    <a class="navbar-brand" id="menu2">
+                        <h6>
+                            Form Request
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-sm-xs text-center">
+                    <a class="navbar-brand" id="submit_logout">
+                        <h6>
+                            Logout
+                        </h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
 </body>
-<script>
-    $(document).ready(function (e) {
-        let add_button = $('#add_multiple');
-        let wrapper = $('.main_container');
-        n = 0;
-        let arr = [];
-        add_button.on('click', function () {
-            n++;
-            wrapper.append('<hr id="ruler_' + n + '"/>\
-                <div class="main_wrapper" id="wrapper_'+ n + '"> \
-                <div class= "row" >\
-                <div class="col-sm"> <label for="label_enduser_'+ n + '">End User/ Third Party</label> \
-                        <select class="form-control" id="label_enduser_'+ n + '"> <option>1</option> <option>2</option> \
-                        </select>\
-                    </div> \
-                  </div > \
-                <div class="row"> \
-                    <div class="col-sm"> \
-                        <label for="label_inspector_'+ n + '">Inspector</label> \
-                        <select class="form-control" id="label_inspector_'+ n + '"> \
-                            <option>1</option> <option>2</option>\
-                        </select> \
-                    </div >\
-                </div > \
-                <div class="row"> \
-                    <div class="col-sm" > \
-                        <label for="label_prodcat_'+ n + '">Product Category</label> \
-                            <input type="text" class="form-control" id="label_prodcat_'+ n + '" placeholder="" value="" >\
-                    </div> \
-                </div >\
-                <div class="row"> \
-                    <div class="col-sm">\
-                        <label for="label_schedule_'+ n + '">Schedule Date</label> <input type="date" class="form-control" id="label_schedule_' + n + '" placeholder="mm/dd/yyyy" value="" >\
-                    </div>\
-                </div> \
-                <div class="row"> \
-                    <div class="col-sm">\
-                         <label for="label_inspectdate_'+ n + '">Inspection Date</label> \
-                            <input type="date" class="form-control" id="label_inspectdate_'+ n + '" placeholder="mm/dd/yyyy" value="" >\
-                    </div> \
-                </div>\
-                <div class="row"> \
-                    <div class="col-sm">\
-                        <label for="label_rep_'+ n + '">Rep No.</label> <input type="text" class="form-control" id="label_rep_' + n + '" placeholder="" value="" > \
-                    </div> \
-                </div> \
-                <div class="row">\
-                    <div class="col-sm">\
-                        <label for="label_status_'+ n + '">Status</label>\
-                            <input type="text" class="form-control" id="label_status_'+ n + '" placeholder="" value="" >\
-                    </div>\
-                </div> \
-                <div class="row"> \
-                    <div class="col-sm"> \
-                        <label for="label_invoicenum_'+ n + '">Invoice Number</label>\
-                             <input type="text" class="form-control" id="label_invoicenum_'+ n + '" placeholder="" value="" >\
-                    </div> \
-                </div>\
-                <div class="row">\
-                    <div class="col-sm"> \
-                        <div class="form-group">\
-                            <label for="label_remark_'+ n + '">Remark</label> \
-                            <textarea class="form-control" id="label_remark_'+ n + '" rows="3">\
-                            </textarea>\
-                        </div>\
-                     </div>\
-                </div>\
-                <div class="row">\
-                    <div class="col-sm"> \
-                        <div class="form-group">\
-                            <button type="button" id="remove_instep_'+ n + '" onclick="removeForms(' + n + ')" class="btn btn-outline-danger btn-block">Hapus Request</button>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div> ');
-        });
-
-
-
-        $('#get_all_data').on('click', function () {
-            let i = 0;
-            for (i; i < 1; i++) {
-                val_a = $('#label_inspector_' + i + '').val();
-                let obj = {
-                    'label_inspector': val_a
-                }
-                arr.push(obj);
-            }
-            alert(arr);
-            console.log(arr);
-        });
-
-    });
-
-    function removeForms(n) {
-        $('#wrapper_' + n + '').remove();
-        $('#ruler_' + n + '').remove();
-        n = n - 1;
-    }
-</script>
 
 </html>
