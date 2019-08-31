@@ -1,0 +1,191 @@
+<!-- -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Request Inspection</title>
+</head>
+
+<body class="">
+    <!-- page one -->
+    <section class="" id="content_front">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <!-- <form class="form-signin"> -->
+                        <div class="form-label-group">
+                            <label for="inputEmail">Email address</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                            <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                    required autofocus> -->
+                        </div>
+                        <div class="form-label-group" style="margin-top:10px;">
+                            <label for="inputPassword">Password</label>
+                            <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                    required> -->
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                        </div>
+                        <br />
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" id="submit_login">Sign
+                            in</button>
+                        <hr class="my-4">
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="" id="content2" style="display: none;margin-bottom:60px;">
+        <nav class="navbar fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Govcek</a>
+            <p class="my-2 my-sm-0" id="get_all_data" style="color:forestgreen">Submit</p>
+        </nav>
+        <div class=" container main_container">
+            <nav aria-label="breadcrumb" style="margin-top: 10px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Request Inspection Form Entry</li>
+                </ol>
+            </nav>
+            <div class="main_wrapper" id="wrapper_0">
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_enduser_0">End User/ Third Party</label>
+                        <select class="form-control" id="label_enduser_0">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_inspector_0">Inspector</label>
+                        <select class="form-control" id="label_inspector_0">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_prodcat_0">Product Category</label>
+                        <input type="text" class="form-control" id="label_prodcat_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_schedule_0">Schedule Date</label>
+                        <input type="date" class="form-control" id="label_schedule_0" placeholder="mm/dd/yyyy" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_inspectdate_0">Inspection Date</label>
+                        <input type="date" class="form-control" id="label_inspectdate_0" placeholder="mm/dd/yyyy"
+                            value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_rep_0">Rep No.</label>
+                        <input type="text" class="form-control" id="label_rep_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_status_0">Status</label>
+                        <input type="text" class="form-control" id="label_status_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_invoicenum_0">Invoice Number</label>
+                        <input type="text" class="form-control" id="label_invoicenum_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="label_remark_0">Remark</label>
+                            <textarea class="form-control" id="label_remark_0" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </form> -->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <button type="button" id="add_multiple"
+                            class="btn btn-outline-primary btn-block">Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content1" style="display: none;margin-bottom:60px;">
+        <nav class="navbar fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Govcek</a>
+        </nav>
+        <div class="container wrapper_list">
+            <div class="container">
+                <div class="row">
+                    <div class="list-group wrapper_list_inner" style="margin-top: 70px;">
+                        <!-- list generat via javascript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <nav class="navbar fixed-bottom navbar-light bg-light" style="display: none;" id="navigation_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs text-center">
+                    <a class="navbar-brand" id="menu1">
+                        <h6>
+                            List Request
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-sm-xs text-center">
+                    <a class="navbar-brand" id="menu2">
+                        <h6>
+                            Form Request
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-sm-xs text-center">
+                    <a class="navbar-brand" id="submit_logout">
+                        <h6>
+                            Logout
+                        </h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

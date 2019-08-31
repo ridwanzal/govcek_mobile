@@ -1,0 +1,217 @@
+<!-- -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Hello, world!</title>
+</head>
+
+<body class="">
+    <form method="get">
+        <nav class="navbar fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Govcek</a>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="get_all_data" type="submit">Submit</button>
+        </nav>
+        <div class="container main_container">
+            <nav aria-label="breadcrumb" style="margin-top: 10px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Request Inspection Form Entry</li>
+                </ol>
+            </nav>
+            <div class="main_wrapper" id="wrapper_0">
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_enduser_0">End User/ Third Party</label>
+                        <select class="form-control" id="label_enduser_0">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_inspector_0">Inspector</label>
+                        <select class="form-control" id="label_inspector_0">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_prodcat_0">Product Category</label>
+                        <input type="text" class="form-control" id="label_prodcat_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_schedule_0">Schedule Date</label>
+                        <input type="date" class="form-control" id="label_schedule_0" placeholder="mm/dd/yyyy" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_inspectdate_0">Inspection Date</label>
+                        <input type="date" class="form-control" id="label_inspectdate_0" placeholder="mm/dd/yyyy"
+                            value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_rep_0">Rep No.</label>
+                        <input type="text" class="form-control" id="label_rep_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_status_0">Status</label>
+                        <input type="text" class="form-control" id="label_status_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="label_invoicenum_0">Invoice Number</label>
+                        <input type="text" class="form-control" id="label_invoicenum_0" placeholder="" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="label_remark_0">Remark</label>
+                            <textarea class="form-control" id="label_remark_0" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <button type="button" id="add_multiple" class="btn btn-outline-primary btn-block">Tambah</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    $(document).ready(function (e) {
+        let add_button = $('#add_multiple');
+        let wrapper = $('.main_container');
+        n = 0;
+        let arr = [];
+        add_button.on('click', function () {
+            n++;
+            wrapper.append('<hr id="ruler_' + n + '"/>\
+                <div class="main_wrapper" id="wrapper_'+ n + '"> \
+                <div class= "row" >\
+                <div class="col-sm"> <label for="label_enduser_'+ n + '">End User/ Third Party</label> \
+                        <select class="form-control" id="label_enduser_'+ n + '"> <option>1</option> <option>2</option> \
+                        </select>\
+                    </div> \
+                  </div > \
+                <div class="row"> \
+                    <div class="col-sm"> \
+                        <label for="label_inspector_'+ n + '">Inspector</label> \
+                        <select class="form-control" id="label_inspector_'+ n + '"> \
+                            <option>1</option> <option>2</option>\
+                        </select> \
+                    </div >\
+                </div > \
+                <div class="row"> \
+                    <div class="col-sm" > \
+                        <label for="label_prodcat_'+ n + '">Product Category</label> \
+                            <input type="text" class="form-control" id="label_prodcat_'+ n + '" placeholder="" value="" >\
+                    </div> \
+                </div >\
+                <div class="row"> \
+                    <div class="col-sm">\
+                        <label for="label_schedule_'+ n + '">Schedule Date</label> <input type="date" class="form-control" id="label_schedule_' + n + '" placeholder="mm/dd/yyyy" value="" >\
+                    </div>\
+                </div> \
+                <div class="row"> \
+                    <div class="col-sm">\
+                         <label for="label_inspectdate_'+ n + '">Inspection Date</label> \
+                            <input type="date" class="form-control" id="label_inspectdate_'+ n + '" placeholder="mm/dd/yyyy" value="" >\
+                    </div> \
+                </div>\
+                <div class="row"> \
+                    <div class="col-sm">\
+                        <label for="label_rep_'+ n + '">Rep No.</label> <input type="text" class="form-control" id="label_rep_' + n + '" placeholder="" value="" > \
+                    </div> \
+                </div> \
+                <div class="row">\
+                    <div class="col-sm">\
+                        <label for="label_status_'+ n + '">Status</label>\
+                            <input type="text" class="form-control" id="label_status_'+ n + '" placeholder="" value="" >\
+                    </div>\
+                </div> \
+                <div class="row"> \
+                    <div class="col-sm"> \
+                        <label for="label_invoicenum_'+ n + '">Invoice Number</label>\
+                             <input type="text" class="form-control" id="label_invoicenum_'+ n + '" placeholder="" value="" >\
+                    </div> \
+                </div>\
+                <div class="row">\
+                    <div class="col-sm"> \
+                        <div class="form-group">\
+                            <label for="label_remark_'+ n + '">Remark</label> \
+                            <textarea class="form-control" id="label_remark_'+ n + '" rows="3">\
+                            </textarea>\
+                        </div>\
+                     </div>\
+                </div>\
+                <div class="row">\
+                    <div class="col-sm"> \
+                        <div class="form-group">\
+                            <button type="button" id="remove_instep_'+ n + '" onclick="removeForms(' + n + ')" class="btn btn-outline-danger btn-block">Hapus Request</button>\
+                        </div>\
+                    </div>\
+                </div>\
+            </div> ');
+        });
+
+
+
+        $('#get_all_data').on('click', function () {
+            let i = 0;
+            for (i; i < 1; i++) {
+                val_a = $('#label_inspector_' + i + '').val();
+                let obj = {
+                    'label_inspector': val_a
+                }
+                arr.push(obj);
+            }
+            alert(arr);
+            console.log(arr);
+        });
+
+    });
+
+    function removeForms(n) {
+        $('#wrapper_' + n + '').remove();
+        $('#ruler_' + n + '').remove();
+        n = n - 1;
+    }
+</script>
+
+</html>
