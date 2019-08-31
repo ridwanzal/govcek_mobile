@@ -19,11 +19,15 @@
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Sign In</h5>
+                        <br/>
+                        <h5 class="card-title text-center">Login</h5>
+                        <p class="card-title text-center">Email and Password</p>
+                        <br/>
+                        <br/>
                         <!-- <form class="form-signin"> -->
                         <div class="form-label-group">
                             <label for="inputEmail">Email address</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                            <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control" placeholder="Email">
                             <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                     required autofocus> -->
                         </div>
@@ -34,7 +38,7 @@
                             <input type="password" id="inputPassword" class="form-control" placeholder="Password">
                         </div>
                         <br />
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" id="submit_login">Sign
+                        <button class="btn btn-sm btn-primary btn-block text-uppercase" id="submit_login" style="padding: 10px;">Sign
                             in</button>
                         <hr class="my-4">
                         <!-- </form> -->
@@ -44,14 +48,14 @@
         </div>
     </section>
     <section class="" id="content2" style="display: none;margin-bottom:60px;">
-        <nav class="navbar fixed-top navbar-dark bg-dark">
+        <nav class="navbar fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">Govcek</a>
             <p class="my-2 my-sm-0" id="get_all_data" style="color:forestgreen">Submit</p>
         </nav>
         <div class=" container main_container">
-            <nav aria-label="breadcrumb" style="margin-top: 10px;">
+            <nav aria-label="breadcrumb" style="margin-top: 70px;">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Request Inspection Form Entry</li>
+                    <li class="breadcrumb-item" aria-current="page">Request Inspection Form Entry</li>
                 </ol>
             </nav>
             <div class="main_wrapper" id="wrapper_0">
@@ -132,14 +136,19 @@
             </div>
         </div>
     </section>
-    <section id="content1" style="display: none;margin-bottom:60px;">
-        <nav class="navbar fixed-top navbar-dark bg-dark">
+    <section id="content1" style="display: none;">
+        <nav class="navbar fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">Govcek</a>
         </nav>
         <div class="container wrapper_list">
+            <nav aria-label="breadcrumb" style="margin-top:70px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Request Inspection List </li>
+                </ol>
+            </nav>
             <div class="container">
                 <div class="row">
-                    <div class="list-group wrapper_list_inner" style="margin-top: 70px;">
+                    <div class="list-group wrapper_list_inner"  >
                         <!-- list generat via javascript -->
                     </div>
                 </div>
@@ -148,8 +157,8 @@
     </section>
     <nav class="navbar fixed-bottom navbar-light bg-light" style="display: none;" id="navigation_main">
         <div class="container">
-            <div class="row">
-                <div class="col-xs text-center">
+            <div class="row justify-content-md-center">
+                <div class="col-xs">
                     <a class="navbar-brand" id="menu1">
                         <h6>
                             List Request
@@ -177,6 +186,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

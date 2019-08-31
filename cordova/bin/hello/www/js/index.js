@@ -1,13 +1,47 @@
+let elem_login_email = $('#inputEmail');
+let elem_login_pass = $('#inputPassword');
+let response_login = [
+    {
+        data : [{
+
+        }],
+        message : 'Success',
+        code : 200
+    }
+];
+
 $(document).ready(function (e) {
     let add_button = $('#add_multiple');
     let wrapper = $('.main_container');
-    n = 0;
     let arr = [];
+    let login_checked;
+    n = 0;
     $('#submit_login').on('click', function () {
-        $('#content_front').hide();
-        $('#content2').hide();
-        $('#content1').show();
-        $('#navigation_main').show();
+        if(elem_login_email.val() == ""){
+            elem_login_email.css('border-color', '#ff0000');
+        }else{
+            elem_login_email.css('border-color', '#ced4da');
+        }
+        
+        if(elem_login_pass.val() == ""){
+            elem_login_pass.css('border-color', '#ff0000');
+            return;
+        }else{
+            elem_login_pass.css('border-color', '#ced4da');
+        }
+
+        
+
+        // call service here if succcess return json
+        let i = 0 ;
+        for(i; i < response_login.length; i++){
+            if(response_login[i].code === 200){
+                $('#content_front').hide(); 
+                $('#content2').hide();
+                $('#content1').show();
+                $('#navigation_main').show();
+            }
+        }
     });
 
     $('#submit_logout').on('click', function () {
@@ -127,6 +161,17 @@ $(document).ready(function (e) {
     });
 
     // fetch data inspection list
+    // {
+    //     "label_enduser_": "Bureau Veritas",
+    //     "label_inspectdate_": "2018-04-18",
+    //     "label_inspector": "Athar Ahmad",
+    //     "label_invoicenum_": "",
+    //     "label_prodcat_": "Electrical Overhead Crane",
+    //     "label_remark_": "please come at 9.00 am",
+    //     "label_rep_": "",
+    //     "label_schedule_": "2019-08-28",
+    //     "label_status_": "Unsafe"
+    //   }
     $.ajax({
         url: "js/list.json", // change with service
         method: 'get',
@@ -138,12 +183,10 @@ $(document).ready(function (e) {
             for (i; i < result.length; i++) {
                 list = '<a href="#" id="" class="list-group-item list-group-item-action flex-column align-items-start">\
                                 <div class="d-flex w-100 justify-content-between">\
-                                    <h5 class="mb-2 h5">List group item heading</h5>\
-                                    <small>3 days ago</small>\
+                                    <h5 class="mb-2 h5">'+result[i].label_enduser_+'</h5>\
+                                    <small>'+result[i].label_schedule_+'</small>\
                                 </div >\
-                                <p class="mb-2">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget\
-                                    risus varius\
-                                blandit.</p>\
+                                <p class="mb-2">'+result[i].label_remark_+'</p>\
                                 <small>Donec id elit non mi porta.</small>\
                             </a >';
                 elem.append(list)
