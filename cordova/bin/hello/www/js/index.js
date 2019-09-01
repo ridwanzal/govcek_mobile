@@ -1,5 +1,6 @@
 let elem_login_email = $('#inputEmail');
 let elem_login_pass = $('#inputPassword');
+let elem_main_nav = $('#main_nav');
 let response_login =
     {
         data : [{
@@ -10,30 +11,43 @@ let response_login =
     };
 
 $(document).ready(function (e) {
+    elem_main_nav.hide();
     let check_session = localStorage.getItem('userdata');
     if(check_session != null){
         $('#content_front').hide(); 
         $('#content2').hide();
         $('#content1').show();
         $('#navigation_main').show();
+        elem_main_nav.show();
     }else{
         $('#content_front').show(); 
         $('#content2').hide();
         $('#content1').hide(); 
         $('#navigation_main').hide();
+        elem_main_nav.hide();
     }
 
     let add_button = $('#add_multiple');
     let wrapper = $('.main_container');
     let arr = [];
-    let login_checked;
+    let email_checked = false;
+    let password_checked = false;
     n = 0;
     $('#submit_login').on('click', function () {    
         if(elem_login_email.val() == ""){
             elem_login_email.css('border-color', '#ff0000');
             return;
+        }else if(validateEmail(elem_login_email.val()) == false){
+            elem_login_email.css('border-color', '#ff0000');
+            Swal.fire({
+                type: 'error',
+                title: 'Error   ',   
+                text: 'Check your email input',
+            });
+            return;
         }else{
             elem_login_email.css('border-color', '#ced4da');
+            email_checked = true;
         }
         
         if(elem_login_pass.val() == ""){
@@ -41,24 +55,27 @@ $(document).ready(function (e) {
             return;
         }else{
             elem_login_pass.css('border-color', '#ced4da');
+            password_checked = true;
         }
 
-        
         // call service here if succcess return json
-        let i = 0 ;
-            if(response_login.code === 200){
-                Swal.fire({
-                    type: 'success',
-                    title: 'Success',   
-                    text: 'Login Success',
-                });
-                localStorage.setItem("userdata", response_login.data);
-                setTimeout(function(){
-                      $('#content_front').hide(); 
-                      $('#content2').hide();
-                      $('#content1').show();
-                      $('#navigation_main').show();
-                }, 2000)
+        if(email_checked && password_checked){
+            let i = 0 ;
+                if(response_login.code === 200){
+                    elem_main_nav.show();
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Success',   
+                        text: 'Login Success',
+                    });
+                    localStorage.setItem("userdata", response_login.data);
+                    setTimeout(function(){
+                          $('#content_front').hide(); 
+                          $('#content2').hide();
+                          $('#content1').show();
+                          $('#navigation_main').show();
+                    }, 2000)
+            }
         }
     });
 
@@ -80,6 +97,10 @@ $(document).ready(function (e) {
                 $('#content2').hide();
                 $('#content1').hide();
                 $('#navigation_main').hide();
+                localStorage.removeItem("userdata");
+                elem_login_email.val('');
+                elem_login_pass.val('')
+                elem_main_nav.hide();
             }
           })
     });
@@ -207,7 +228,6 @@ $(document).ready(function (e) {
         "label_status_": "Unsafe"
     }
     */
-
     $.ajax({
         url: "js/list.json", // change with service
         method: 'get',
@@ -233,6 +253,27 @@ $(document).ready(function (e) {
         }
     });
 
+    $.ajax({
+        url: "js/list.json", // change with service
+        method: 'get',
+        async: false,
+        success: function (result) {
+            console.log(result);
+            let elem = $('.wrapper_list_inner');
+            let i = 0;
+            for (i; i < result.length; i++) {
+                list = '';
+                elem.append(list)
+            }
+        },
+        failed: function (result) {
+            console.log(result);
+        }
+    });
+
+
+    
+
 });
 
 function removeForms(n) {
@@ -256,4 +297,14 @@ function toRequestForm(){
 function toListForm(){
     $('#content2').hide();
     $('#content1').show();
+}
+
+function validateEmail(sEmail) {
+    var filter =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (filter.test(sEmail)) {
+    return true;
+    }
+    else {  
+    return false;
+    }
 }
