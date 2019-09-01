@@ -17,10 +17,12 @@ $(document).ready(function (e) {
         $('#content_front').hide(); 
         $('#content2').hide();
         $('#content1').show();
+        $('#content_front_register').hide();
         $('#navigation_main').show();
         elem_main_nav.show();
     }else{
         $('#content_front').show(); 
+        $('#content_front_register').hide();
         $('#content2').hide();
         $('#content1').hide(); 
         $('#navigation_main').hide();
@@ -74,9 +76,14 @@ $(document).ready(function (e) {
                           $('#content2').hide();
                           $('#content1').show();
                           $('#navigation_main').show();
-                    }, 2000)
+                    }, 100)
             }
         }
+    });
+
+    $('#goto_createuser').on('click', function(){
+        $('#content_front').hide(); 
+        $('#content_front_register').show();
     });
 
     $('#submit_logout').on('click', function () {
@@ -120,14 +127,14 @@ $(document).ready(function (e) {
         wrapper.append('<hr id="ruler_' + n + '"/>\
           <div class="main_wrapper" id="wrapper_'+ n + '"> \
           <div class= "row" >\
-          <div class="col-sm"> <label for="label_enduser_'+ n + '">End User/ Third Party</label> \
+          <div class="col-sm"> <label for="label_enduser_'+ n + '" class="thisfontblack">End User/ Third Party</label> \
                   <select class="form-control" id="label_enduser_'+ n + '"> <option>1</option> <option>2</option> \
                   </select>\
               </div> \
             </div > \
           <div class="row"> \
               <div class="col-sm"> \
-                  <label for="label_inspector_'+ n + '">Inspector</label> \
+                  <label for="label_inspector_'+ n + '" class="thisfontblack">Inspector</label> \
                   <select class="form-control" id="label_inspector_'+ n + '"> \
                       <option>1</option> <option>2</option>\
                   </select> \
@@ -135,42 +142,42 @@ $(document).ready(function (e) {
           </div > \
           <div class="row"> \
               <div class="col-sm" > \
-                  <label for="label_prodcat_'+ n + '">Product Category</label> \
+                  <label for="label_prodcat_'+ n + '" class="thisfontblack">Product Category</label> \
                       <input type="text" class="form-control" id="label_prodcat_'+ n + '" placeholder="" value="" >\
               </div> \
           </div >\
           <div class="row"> \
               <div class="col-sm">\
-                  <label for="label_schedule_'+ n + '">Schedule Date</label> <input type="date" class="form-control" id="label_schedule_' + n + '" placeholder="mm/dd/yyyy" value="" >\
+                  <label for="label_schedule_'+ n + '" class="thisfontblack">Schedule Date</label> <input type="date" class="form-control" id="label_schedule_' + n + '" placeholder="mm/dd/yyyy" value="" >\
               </div>\
           </div> \
           <div class="row"> \
               <div class="col-sm">\
-                   <label for="label_inspectdate_'+ n + '">Inspection Date</label> \
+                   <label for="label_inspectdate_'+ n + '" class="thisfontblack">Inspection Date</label> \
                       <input type="date" class="form-control" id="label_inspectdate_'+ n + '" placeholder="mm/dd/yyyy" value="" >\
               </div> \
           </div>\
           <div class="row"> \
               <div class="col-sm">\
-                  <label for="label_rep_'+ n + '">Rep No.</label> <input type="text" class="form-control" id="label_rep_' + n + '" placeholder="" value="" > \
+                  <label for="label_rep_'+ n + '" class="thisfontblack">Rep No.</label> <input type="text" class="form-control" id="label_rep_' + n + '" placeholder="" value="" > \
               </div> \
           </div> \
           <div class="row">\
               <div class="col-sm">\
-                  <label for="label_status_'+ n + '">Status</label>\
+                  <label for="label_status_'+ n + '" class="thisfontblack">Status</label>\
                       <input type="text" class="form-control" id="label_status_'+ n + '" placeholder="" value="" >\
               </div>\
           </div> \
           <div class="row"> \
               <div class="col-sm"> \
-                  <label for="label_invoicenum_'+ n + '">Invoice Number</label>\
+                  <label for="label_invoicenum_'+ n + '" class="thisfontblack">Invoice Number</label>\
                        <input type="text" class="form-control" id="label_invoicenum_'+ n + '" placeholder="" value="" >\
               </div> \
           </div>\
           <div class="row">\
               <div class="col-sm"> \
                   <div class="form-group">\
-                      <label for="label_remark_'+ n + '">Remark</label> \
+                      <label for="label_remark_'+ n + '" class="thisfontblack">Remark</label> \
                       <textarea class="form-control" id="label_remark_'+ n + '" rows="3">\
                       </textarea>\
                   </div>\
@@ -179,7 +186,7 @@ $(document).ready(function (e) {
           <div class="row">\
               <div class="col-sm"> \
                   <div class="form-group">\
-                      <button type="button" id="remove_instep_'+ n + '" onclick="removeForms(' + n + ')" class="btn btn-outline-danger btn-block">Hapus Request</button>\
+                      <button type="button" id="remove_instep_'+ n + '" onclick="removeForms(' + n + ')" class="btn btn-outline-danger btn-block thisfontblack">Hapus Request</button>\
                   </div>\
               </div>\
           </div>\
@@ -238,11 +245,11 @@ $(document).ready(function (e) {
             let i = 0;
             for (i; i < result.length; i++) {
                 list = '<a href="#" id="" class="list-group-item list-group-item-action flex-column align-items-start">\
-                                <div class="d-flex w-100 justify-content-between">\
-                                    <h5 class="mb-2 h5">'+result[i].label_enduser_+'</h5>\
+                                <div class="d-flex w-100 justify-content-between ">\
+                                    <h5 class="mb-2 h5 thisfontblack font-weight-bold">'+result[i].label_enduser_+'</h5>\
                                     <small>'+result[i].label_schedule_+'</small>\
                                 </div >\
-                                <p class="mb-2">'+result[i].label_remark_+'</p>\
+                                <p class="mb-2 thisfontblack">'+result[i].label_remark_+'</p>\
                                 <small>Donec id elit non mi porta.</small>\
                             </a >';
                 elem.append(list)

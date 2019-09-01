@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="author" content="">
-  <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+  <meta name="viewport" content= "width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Simple Sidebar - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
@@ -27,7 +27,7 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Govcek</div>
+      <div class="sidebar-heading">Main Menu</div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu1">List Request</a>
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu2">Form Request</a>
@@ -42,11 +42,13 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="main_nav">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button><span style="font-weight:bold;">&nbsp;Govcek</span>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <button class="btn btn-primary" id="menu-toggle">Menu</button><span style="font-weight:bold;">&nbsp;</span> -->
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <button style="display:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <span>Govcek</span>
+        <i class="fa fa-search"></i>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -79,40 +81,91 @@
                             <br/>
                             <h1 class="text-center font-weight-bold">Govcek</h1>
                             <br/>
-                            <br/>
-                            <h5 class="card-title text-center">Login</h5>
-                            <p class="card-title text-center">Email and Password</p>
+                            <h5 class="card-title text-center thisfont">Login</h5>
+                            <p class="card-title text-center thisfont">Email and Password</p>
                             <br/>
                             <br/>
                             <!-- <form class="form-signin"> -->
                             <div class="form-label-group">
-                                <label for="inputEmail">Email address</label>
-                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control" placeholder="Email">
+                                <label for="inputEmail" class="thisfontblack">Email address</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control thisfontblack" placeholder="Email">
                                 <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                         required autofocus> -->
                             </div>
                             <div class="form-label-group" style="margin-top:10px;">
-                                <label for="inputPassword">Password</label>
+                                <label for="inputPassword" class="thisfontblack">Password</label>
                                 <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password"
                                         required> -->
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                                <input type="password" id="inputPassword" class="form-control thisfontblack" placeholder="Password">
                             </div>
                             <br />
-                            <button class="btn btn-sm btn-primary btn-block text-uppercase" id="submit_login" style="padding: 10px;">Sign
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" id="submit_login" style="padding: 10px;">Sign
                                 in</button>
                             <hr class="my-4">
+                            <p class="card-title text-center thisfontblack" style="color:#007bff" id="goto_createuser">Create new User?</p>
                             <!-- </form> -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="" id="content_front_register" style="display:none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center thisfont">Daftar</h5>
+                            <!-- <form class="form-signin"> -->
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="inputEmail" class="thisfontblack">First Name</label>
+                                        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="reg_firstname" class="form-control thisfontblack" placeholder="First Name">
+                                    </div>
+                                    <div class="col">
+                                        <label for="inputEmail" class="thisfontblack">Last Name</label>
+                                        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="ematextl" id="reg_lastname" class="form-control thisfontblack" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-label-group"  style="margin-top:10px;">
+                                <label for="inputEmail" class="thisfontblack">Username</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" id="reg_username" class="form-control thisfontblack" placeholder="Username">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Company Name</label>
+                                <input type="text" id="reg_companyname" class="form-control thisfontblack" placeholder="Company Name">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Email Address</label>
+                                <input type="text" id="reg_email" class="form-control thisfontblack" placeholder="Email Address">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Password</label>
+                                <input type="text" id="reg_password" class="form-control thisfontblack" placeholder="Password">
+                            </div>
+                            <div class="form-label-group" style="margin-top:10px;">
+                                <label for="inputPassword" class="thisfontblack">Confirmation Password</label>
+                                <input type="text" id="reg_conf_password" class="form-control thisfontblack" placeholder="Confirmation Password">
+                            </div>
+                            <br/>
+                            <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" id="submit_login" style="padding: 10px;">Sign
+                                in</button>
+                                <br/>
+                            <h5 class="card-title text-center thisfont"><i class="fa fa-caret-left"></i> Kembali ke Login</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <section class="" id="content2" style="display: none;margin-bottom:0px;">
             <div class=" container main_container">
                 <div class="main_wrapper" id="wrapper_0">
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_enduser_0">End User/ Third Party</label>
+                            <label for="label_enduser_0" class="thisfontblack">End User/ Third Party</label>
                             <select class="form-control" id="label_enduser_0">
                                 <option>1</option>
                                 <option>2</option>
@@ -121,7 +174,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_inspector_0">Inspector</label>
+                            <label for="label_inspector_0" class="thisfontblack">Inspector</label>
                             <select class="form-control" id="label_inspector_0">
                                 <option>1</option>
                                 <option>2</option>
@@ -130,45 +183,45 @@
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_prodcat_0">Product Category</label>
+                            <label for="label_prodcat_0" class="thisfontblack">Product Category</label>
                             <input type="text" class="form-control" id="label_prodcat_0" placeholder="" value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_schedule_0">Schedule Date</label>
+                            <label for="label_schedule_0" class="thisfontblack">Schedule Date</label>
                             <input type="date" class="form-control" id="label_schedule_0" placeholder="mm/dd/yyyy" value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_inspectdate_0">Inspection Date</label>
+                            <label for="label_inspectdate_0 " class="thisfontblack">Inspection Date</label>
                             <input type="date" class="form-control" id="label_inspectdate_0" placeholder="mm/dd/yyyy"
                                 value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_rep_0">Rep No.</label>
+                            <label for="label_rep_0 " class="thisfontblack">Rep No.</label>
                             <input type="text" class="form-control" id="label_rep_0" placeholder="" value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_status_0">Status</label>
+                            <label for="label_status_0" class="thisfontblack">Status</label>
                             <input type="text" class="form-control" id="label_status_0" placeholder="" value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="label_invoicenum_0">Invoice Number</label>
+                            <label for="label_invoicenum_0" class="thisfontblack">Invoice Number</label>
                             <input type="text" class="form-control" id="label_invoicenum_0" placeholder="" value="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm">
                             <div class="form-group">
-                                <label for="label_remark_0">Remark</label>
+                                <label for="label_remark_0" class="thisfontblack">Remark</label>
                                 <textarea class="form-control" id="label_remark_0" rows="3"></textarea>
                             </div>
                         </div>
@@ -181,7 +234,7 @@
                     <div class="col-sm">
                         <div class="form-group">
                             <button type="button" id="add_multiple"
-                                class="btn btn-outline-primary btn-block">Tambah</button>
+                                class="btn btn-outline-primary btn-block thisfontblack">Tambah</button>
                         </div>
                     </div>
                 </div>
