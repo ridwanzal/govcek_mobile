@@ -2,13 +2,15 @@ let elem_login_email = $('#inputEmail');
 let elem_login_pass = $('#inputPassword');
 let elem_main_nav = $('#main_nav');
 let response_login =
-    {
-        data : [{
-            username : 'ridwanzal',
-        }],
-        message : 'Success',
-        code : 200
-    };
+{
+    data : [{
+        username : 'ridwanzal',
+    }],
+    message : 'Success',
+    code : 200
+};
+
+
 
 $(document).ready(function (e) {
     elem_main_nav.hide();
@@ -81,11 +83,36 @@ $(document).ready(function (e) {
         }
     });
 
-    $('#goto_createuser').on('click', function(){
+    $('.goto_createuser').on('click', function(){
         $('#content_front').hide(); 
         $('#content_front_register').show();
     });
 
+    $('.goto_login').on('click', function(){
+        $('#content_front').show(); 
+        $('#content_front_register').hide();
+    })
+    
+    $('#menu1').on('click', function () {
+        $('#content2').hide();
+        $('#content1').show();
+        $('#content3').hide();
+        $('#search_list').show();
+    });
+    $('#menu2').on('click', function () {
+        $('#content1').hide();
+        $('#content2').show();
+        $('#content3').hide();
+        $('#search_list').hide();
+    });
+    $('#menu3').on('click', function(){
+        $('#content1').hide();
+        $('#content2').hide();
+        $('#content3').show();
+        $('#search_list').hide();
+    });
+
+    
     $('#submit_logout').on('click', function () {
         Swal.fire({
             title: 'Logout',
@@ -112,14 +139,6 @@ $(document).ready(function (e) {
           })
     });
 
-    $('#menu1').on('click', function () {
-        $('#content2').hide();
-        $('#content1').show();
-    });
-    $('#menu2').on('click', function () {
-        $('#content1').hide();
-        $('#content2').show();
-    });
 
 
     add_button.on('click', function () {
@@ -277,9 +296,6 @@ $(document).ready(function (e) {
             console.log(result);
         }
     });
-
-
-    
 
 });
 

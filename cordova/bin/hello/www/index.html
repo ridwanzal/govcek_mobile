@@ -31,6 +31,7 @@
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu1">List Request</a>
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu2">Form Request</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light menu" id="menu3">Inspection Schedule</a>
         <a href="#" class="list-group-item list-group-item-action bg-light menu" id="submit_logout">Logout</a>
         <!-- <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
@@ -41,37 +42,40 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="main_nav">
-        <!-- <button class="btn btn-primary" id="menu-toggle">Menu</button><span style="font-weight:bold;">&nbsp;</span> -->
-        <i class="fa fa-bars" id="menu-toggle"></i>
-        <button style="display:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <span>Govcek</span>
-        <i class="fa fa-search"></i>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="main_nav">
+            <!-- <button class="btn btn-primary" id="menu-toggle">Menu</button><span style="font-weight:bold;">&nbsp;</span> -->
+            <i class="fa fa-bars" id="menu-toggle"></i>
+            <button style="display:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <span>Govcek</span>
+            <input type="text" id="search_list" class="search_input" placeholder="Cari Item">
+            <i class="fa fa-search search_all"></i>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        
+      <!-- --------------------------------------------------------- -->
 
         <section class="" id="content_front">
             <div class="container">
@@ -102,13 +106,16 @@
                             <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" id="submit_login" style="padding: 10px;">Sign
                                 in</button>
                             <hr class="my-4">
-                            <p class="card-title text-center thisfontblack" style="color:#007bff" id="goto_createuser">Create new User?</p>
+                            <p class="card-title text-center thisfontblack goto_createuser" style="color:#007bff" >Create new User?</p>
                             <!-- </form> -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- --------------------------------------------------------- -->
+
         <section class="" id="content_front_register" style="display:none;">
             <div class="container">
                 <div class="row">
@@ -152,13 +159,14 @@
                             <button class="btn btn-sm btn-primary btn-block text-uppercase thisfontblack" id="submit_login" style="padding: 10px;">Sign
                                 in</button>
                                 <br/>
-                            <h5 class="card-title text-center thisfont"><i class="fa fa-caret-left"></i> Kembali ke Login</h5>
+                            <h5 class="card-title text-center thisfont goto_login"><i class="fa fa-caret-left"></i> Kembali ke Login</h5>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- --------------------------------------------------------- -->
 
         <section class="" id="content2" style="display: none;margin-bottom:0px;">
             <div class=" container main_container">
@@ -240,9 +248,61 @@
                 </div>
             </div>
         </section>
+
+        <!-- --------------------------------------------------------- -->
+
+        <section class="" id="content3" style="display: none;margin-bottom:0px;">
+                <div class=" container main_container">
+                    <div class="main_wrapper" id="wrapper_0">
+                        <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Inspection Schedule</li>
+                            </ol>
+                        </nav>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="label_enduser_0" class="thisfontblack">Inspection Date</label>
+                                <select class="form-control" id="label_enduser_0">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="label_inspector_0" class="thisfontblack">Location</label>
+                                <select class="form-control" id="label_inspector_0">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="label_prodcat_0" class="thisfontblack">Inspector</label>
+                                <input type="text" class="form-control" id="label_prodcat_0" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </div>
+                <div class="container" style="margin-top:10px;">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <button type="button" id="add_multiple"
+                                    class="btn btn-outline-primary btn-block thisfontblack">Tambah</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        
+        <!-- --------------------------------------------------------- -->
+
         <section id="content1" style="display: none;">
             <div class="container wrapper_list">
-                <nav aria-label="breadcrumb" style="margin-top:15px;">
+                <nav aria-label="breadcrumb" style="margin-top:15px;margin-bottom: 15px;">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Request Inspection List </li>
                     </ol>
@@ -256,6 +316,10 @@
                 </div>
             </div>
         </section>
+
+        <!-- --------------------------------------------------------- -->
+
+
     </div>
   </div>
   <!-- /#wrapper -->
