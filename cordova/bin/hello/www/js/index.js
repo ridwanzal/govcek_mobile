@@ -10,8 +10,6 @@ let response_login =
     code : 200
 };
 
-
-
 $(document).ready(function (e) {
     elem_main_nav.hide();
     let check_session = localStorage.getItem('userdata');
