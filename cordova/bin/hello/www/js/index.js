@@ -1,3 +1,4 @@
+let login_status = 0;
 let elem_login_email = $('#inputEmail');
 let elem_login_pass = $('#inputPassword');
 let elem_main_nav = $('#main_nav');
@@ -11,7 +12,37 @@ let response_login =
 };
 
 $(document).ready(function (e) {
+    $('.goto_createuser').on('click', function(){
+        $('#content_front').hide(); 
+        $('#content_front_register').show();
+    });
+
+    $('.goto_login').on('click', function(){
+        $('#content_front').show(); 
+        $('#content_front_register').hide();
+    })
+    
+    $('#menu1').on('click', function () {
+        $('#content2').hide();
+        $('#content1').show();
+        $('#content3').hide();
+        $('#search_list').show();
+    });
+    $('#menu2').on('click', function () {
+        $('#content1').hide();
+        $('#content2').show();
+        $('#content3').hide();
+        $('#search_list').hide();
+    });
+    $('#menu3').on('click', function(){
+        $('#content1').hide();
+        $('#content2').hide();
+        $('#content3').show();
+        $('#search_list').hide();
+    });
+
     elem_main_nav.hide();
+    
     let check_session = localStorage.getItem('userdata');
     if(check_session != null){
         $('#content_front').hide(); 
@@ -76,40 +107,12 @@ $(document).ready(function (e) {
                           $('#content2').hide();
                           $('#content1').show();
                           $('#navigation_main').show();
+                          login_status = 1;
                     }, 100)
             }
         }
     });
-
-    $('.goto_createuser').on('click', function(){
-        $('#content_front').hide(); 
-        $('#content_front_register').show();
-    });
-
-    $('.goto_login').on('click', function(){
-        $('#content_front').show(); 
-        $('#content_front_register').hide();
-    })
     
-    $('#menu1').on('click', function () {
-        $('#content2').hide();
-        $('#content1').show();
-        $('#content3').hide();
-        $('#search_list').show();
-    });
-    $('#menu2').on('click', function () {
-        $('#content1').hide();
-        $('#content2').show();
-        $('#content3').hide();
-        $('#search_list').hide();
-    });
-    $('#menu3').on('click', function(){
-        $('#content1').hide();
-        $('#content2').hide();
-        $('#content3').show();
-        $('#search_list').hide();
-    });
-
     
     $('#submit_logout').on('click', function () {
         Swal.fire({
@@ -128,6 +131,7 @@ $(document).ready(function (e) {
                 $('#content_front').show();
                 $('#content2').hide();
                 $('#content1').hide();
+                $('#content3').hide();
                 $('#navigation_main').hide();
                 localStorage.removeItem("userdata");
                 elem_login_email.val('');
@@ -238,64 +242,34 @@ $(document).ready(function (e) {
         console.log(arr);
     });
 
-    /*
-    fetch data inspection list
-    {
-        "label_enduser_": "Bureau Veritas",
-        "label_inspectdate_": "2018-04-18",
-        "label_inspector": "Athar Ahmad",
-        "label_invoicenum_": "",
-        "label_prodcat_": "Electrical Overhead Crane",
-        "label_remark_": "please come at 9.00 am",
-        "label_rep_": "",
-        "label_schedule_": "2019-08-28",
-        "label_status_": "Unsafe"
-    }
-    */
-    $.ajax({
-        url: "js/list.json", // change with service
-        method: 'get',
-        async: false,
-        success: function (result) {
-            console.log(result);
-            let elem = $('.wrapper_list_inner');
-            let i = 0;
-            for (i; i < result.length; i++) {
-                list = '<a href="#" id="" class="list-group-item list-group-item-action flex-column align-items-start">\
-                                <div class="d-flex w-100 justify-content-between ">\
-                                    <h5 class="mb-2 h5 thisfontblack font-weight-bold">'+result[i].label_enduser_+'</h5>\
-                                    <small>'+result[i].label_schedule_+'</small>\
-                                </div >\
-                                <p class="mb-2 thisfontblack">'+result[i].label_remark_+'</p>\
-                                <small>Donec id elit non mi porta.</small>\
-                            </a >';
-                elem.append(list)
+        $.ajax({
+            url: "http://dev.govcek.com/index.php/master_api/request_inspection", // change with service
+            method: 'get',
+            dataType : 'json',
+            success: function (result) {
+                console.log(result);
+                setTimeout(function(){
+                    let elem = $('.wrapper_list_one');
+                    let i = 0;
+                    for (i; i < result.data.length; i++) {
+                        list = '<a href="#" id="" class="list-group-item list-group-item-action flex-column align-items-start">\
+                                        <div class="d-flex w-100 justify-content-between ">\
+                                            <h5 class="mb-2 h5 thisfontblack font-weight-bold">'+result.data[i].company+'</h5>\
+                                            <small>'+result.data[i].schedule_date+'</small>\
+                                        </div >\
+                                        <p class="mb-2 thisfontblack">'+result.data[i].product_category+'</p>\
+                                        <div class="d-flex w-100 justify-content-between ">\
+                                        <small>'+result.data[i].remark+'</small>\
+                                        <small class="align-right">'+result.data[i].inspector_name+'</small>\
+                                        </div >\
+                                    </a >';
+                        elem.append(list)
+                    }
+                }, 100);
             }
-        },
-        failed: function (result) {
-            console.log(result);
-        }
-    });
+        });
 
-    $.ajax({
-        url: "js/list.json", // change with service
-        method: 'get',
-        async: false,
-        success: function (result) {
-            console.log(result);
-            let elem = $('.wrapper_list_inner');
-            let i = 0;
-            for (i; i < result.length; i++) {
-                list = '';
-                elem.append(list)
-            }
-        },
-        failed: function (result) {
-            console.log(result);
-        }
     });
-
-});
 
 function removeForms(n) {
     $('#wrapper_' + n + '').remove();

@@ -1,0 +1,48 @@
+.navbar-ios{
+    background: #fff !important;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.bold{
+    
+}
+
+.fixed-bottom{
+    height: 48px !important;
+}
+
+.menu {
+    color : #007bff;
+    font-size: 14px;
+}
+
+
+.thisfont{
+    font-size: 14px;
+    color: #007bff;
+}
+
+.thisfontblack{
+    font-size: 14px !important;
+}
+
+.list-group{
+    width: 100%;    
+}
+
+.search_input{
+    background: #fff;
+    border: 1px solid #eee;
+    padding-left: 5px;
+    border-radius: 2px;
+}
+
+.wrapper_list{
+    margin-bottom: 15px;
+}
+
+::placeholder{
+    color : #ddd;
+    font-size: 14px;
+}
