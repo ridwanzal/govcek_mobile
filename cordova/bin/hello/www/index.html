@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jquery.spin.css">
   <link rel="stylesheet" href="css/style.css">
-
   <!-- Custom styles for this template -->
   <link href="css/sidebar.css" rel="stylesheet">
 
@@ -24,7 +24,7 @@
 <body>
 
   <div class="d-flex" id="wrapper">
-
+    <!-- <div class="spin" data-spin style="margin: 50% auto auto auto; display: none;"/>5 -->
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Main Menu</div>
@@ -91,8 +91,8 @@
                             <br/>
                             <!-- <form class="form-signin"> -->
                             <div class="form-label-group">
-                                <label for="inputEmail" class="thisfontblack">Email address</label>
-                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control thisfontblack" placeholder="Email">
+                                <label for="inputEmail" class="thisfontblack">Username</label>
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" id="inputEmail" class="form-control thisfontblack" placeholder="Username">
                                 <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                                         required autofocus> -->
                             </div>
@@ -786,7 +786,10 @@
     crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/session.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/jquery.spin.js"></script>
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
